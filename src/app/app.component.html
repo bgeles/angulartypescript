@@ -1,4 +1,9 @@
 <h1>{{tittle}}</h1>
 <ul>
-  <li *ngFor='let t of todos'>{{t}}</li>
+  <li *ngFor='let t of todos'>
+      {{t.id}} - {{t.todo}} | 
+      <button *ngIf="!t.done" (click)="markAsDone(t)">CONCLUIR</button> |
+      <button *ngIf="t.done" (click)="markAsUndone(t)">REFAZER</button> |
+      <button (click)="remove(t)">REMOVER</button> 
+  </li>
 </ul>
