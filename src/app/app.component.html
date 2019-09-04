@@ -7,3 +7,11 @@
       <button (click)="remove(t)">REMOVER</button> 
   </li>
 </ul>
+
+<form [formGroup]="form">
+  <fieldset>
+    <Label>Tarefa :</Label>
+    <input type="text" placeholder="Titulo da Tarefa" maxlength="60" formControlName="tittle">
+    <button>Salvar</button>
+  </fieldset>
+</form>
