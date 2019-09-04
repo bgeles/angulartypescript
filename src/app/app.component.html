@@ -1,18 +1,18 @@
-<h1>{{tittle}}</h1>
+<h1>{{ title }}</h1>
 <ul>
-  <li *ngFor='let t of todos'>
-      {{t.id}} - {{t.todo}} | 
+  <p *ngIf="todos.length==0"><small>Não tem nenhuma tarefa hoje!</small></p>
+  <li *ngFor="let t of todos">
+      {{t.id}} - {{t.title}} | 
       <button *ngIf="!t.done" (click)="markAsDone(t)">CONCLUIR</button> |
       <button *ngIf="t.done" (click)="markAsUndone(t)">REFAZER</button> |
       <button (click)="remove(t)">REMOVER</button> 
   </li>
 </ul>
-
 <form [formGroup]="form">
   <fieldset>
     <Label>Tarefa :</Label>
     <input type="text" placeholder="Titulo da Tarefa" maxlength="60" formControlName="title">
-    <small *ngIf="form.controls.tittle.invalid && !form.controls.tittle.pristine">Este campo deve conter entre 3 e 60 caracteres</small>
-    <button  [disabled]="form.invalid">Salvar</button>
+    <small *ngIf="form.controls.title.invalid && !form.controls.title.pristine">Este campo deve conter entre 3 e 60 caracteres</small>
+    <button  [disabled]="form.invalid" (click)="add()">Salvar</button>
   </fieldset>
 </form>
