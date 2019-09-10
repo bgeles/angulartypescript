@@ -9,3 +9,61 @@ body {
     background: -webkit-linear-gradient(60deg, #3023ae 0%, #c86dd7 100%);
     background: linear-gradient(60deg, #3023ae 0%, #c86dd7 100%);
 }
+
+.title {
+    font-family: 'Dancing Script',cursive;
+    color: #fff;
+    font-size: 5em;
+    text-shadow: 3px 5px #000;
+}
+
+.text-center {
+    text-align: center;
+}
+
+button {
+    cursor: pointer;
+}
+
+li {
+    padding: 15px;
+    margin: 10px;
+    font-size: 1em;
+    font-style: italic;
+    border-bottom: 2px solid rgba(0,0,0,0.2);
+}
+
+li>button{
+    border: none;
+    background-color: #fff;
+    font-size: 1em;
+    float: right;
+    opacity: 0.6;
+    transition: opacity 1s;
+}
+
+li>button:hover{
+    opacity: 1;
+    transition: opacity 1s;
+}
+
+ul {
+    text-align: left;
+    margin: 10px;
+    padding: 10px;
+    list-style: none;
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 3px 4px 14px 0 px rgba(0,0,0,0.39);
+}
+
+.button{
+    background-color: #000;
+    border: none;
+    padding: 20px;
+    color: #fff;
+    border-radius: 30px;
+    font-size: 1em;
+    padding-left: 50px;
+    padding-right: 50px;
+}
