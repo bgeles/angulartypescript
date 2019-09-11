@@ -1,18 +1,32 @@
-<h1 class="title">{{ title }}</h1>
-<ul>
+<h1 class="title animated jackInTheBox">{{ title }}</h1>
+<ul class="animated flipInX" *ngIf="mode=='list'">
   <p *ngIf="todos.length==0"><small>Não tem nenhuma tarefa hoje!</small></p>
   <li *ngFor="let t of todos">
-      {{t.title}} | 
-      <button *ngIf="!t.done" (click)="markAsDone(t)">CONCLUIR</button> |
-      <button *ngIf="t.done" (click)="markAsUndone(t)">REFAZER</button> |
-      <button (click)="remove(t)">REMOVER</button> 
+    {{t.title}} |
+    <button *ngIf="!t.done" (click)="markAsDone(t)">CONCLUIR</button> |
+    <button *ngIf="t.done" (click)="markAsUndone(t)">REFAZER</button> |
+    <button (click)="remove(t)">REMOVER</button>
   </li>
 </ul>
-<form [formGroup]="form">
-  <fieldset>
-    <Label>Tarefa :</Label>
-    <input type="text" placeholder="Titulo da Tarefa" maxlength="60" formControlName="title">
-    <small *ngIf="form.controls.title.invalid && !form.controls.title.pristine">Este campo deve conter entre 3 e 60 caracteres</small>
-    <button class="button" [disabled]="form.invalid" (click)="add()">Salvar</button>
-  </fieldset>
-</form>
+
+<div id="modal" *ngIf="mode=='add'" class="animated flipInX">
+  <form [formGroup]="form">
+    <fieldset>
+      <Label>Tarefa :</Label>
+      <input type="text" placeholder="Titulo da Tarefa" maxlength="60" formControlName="title">
+      <small *ngIf="form.controls.title.invalid && !form.controls.title.pristine">Este campo deve conter entre 3 e 60
+        caracteres</small>
+      <button class="button" [disabled]="form.invalid" (click)="add()">Salvar</button>
+    </fieldset>
+  </form>
+</div>
+
+<button class="add-button animated fadeInUp button" (click)="changeMode('add')" *ngIf="mode=='list'">
+  <i class="fas fa-plus-circle"></i>
+  NOVA TAREFA
+</button>
+
+<button class="add-button animated fadeInUp button" (click)="changeMode('list')" *ngIf="mode=='add'">
+  <i class="fas fa-times"></i>
+  CANCELAR
+</button>
